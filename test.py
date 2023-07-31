@@ -25,6 +25,8 @@ except Exception:
 
 RTC_CONFIGURATION = RTCConfiguration({"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]})
 
+song = ""
+
 class FaceEmotion(VideoTransformerBase):
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
@@ -46,7 +48,8 @@ class FaceEmotion(VideoTransformerBase):
                 maxindex = int(np.argmax(prediction))
                 finalout = emotion_dict[maxindex]
                 output = str(finalout)
-            label_position = (x, y)
+                song = output
+            label_position = (x, y-10)
             cv2.putText(img, output, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
         return img
@@ -84,15 +87,22 @@ def main():
         webrtc_streamer(key="example", mode=WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
                         video_processor_factory=FaceEmotion)
 
-        if (output == "neutral"):
+        html_temp_song = """<div style="background-color:#6D7B8D;padding:10px">
+                                            <h4 style="color:white;text-align:center;">
+                                            Song Recommendation.</h4>
+                                            </div>
+                                            </br>"""
+        st.markdown(html_temp_song, unsafe_allow_html=True)
+
+        if (song == "neutral"):
             st.write("Since you mood seems NEUTRAL I would recommend the song: ")
-        if (output == "happy"):
+        if (song == "happy"):
             st.write("Since you mood seems HAPPY I would recommend the song: ")
-        if (output == "sad"):
+        if (song == "sad"):
             st.write("Since you mood seems SAD I would recommend the song: ")
-        if (output == "angry"):
+        if (song == "angry"):
             st.write("Since you mood seems ANGRY I would recommend the song: ")
-        if (output == "surprise"):
+        if (song == "surprise"):
             st.write("Since you mood seems SURPRISE I would recommend the song: ")
 
     elif choice == "About":
