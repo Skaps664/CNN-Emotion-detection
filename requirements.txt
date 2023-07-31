@@ -4,3 +4,4 @@ opencv
 tensorflow-cpu
 streamlit_webrtc
 scikit-learn
+cv2
