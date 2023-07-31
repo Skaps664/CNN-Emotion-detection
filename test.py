@@ -84,7 +84,16 @@ def main():
         webrtc_streamer(key="example", mode=WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
                         video_processor_factory=FaceEmotion)
 
-        st.write("THis is great")
+        if (output == "neutral"):
+            st.write("Since you mood seems NEUTRAL I would recommend the song: ")
+        if (output == "happy"):
+            st.write("Since you mood seems HAPPY I would recommend the song: ")
+        if (output == "sad"):
+            st.write("Since you mood seems SAD I would recommend the song: ")
+        if (output == "angry"):
+            st.write("Since you mood seems ANGRY I would recommend the song: ")
+        if (output == "surprise"):
+            st.write("Since you mood seems SURPRISE I would recommend the song: ")
 
     elif choice == "About":
         st.subheader("About this app")
