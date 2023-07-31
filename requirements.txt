@@ -1,7 +1,8 @@
-streamlit~=1.25.0
+streamlit
 keras~=2.13.1
 opencv-contrib-python-headless
 tensorflow-cpu
 streamlit_webrtc
 opencv-python~=4.8.0.74
 numpy~=1.25.1
+scipy
