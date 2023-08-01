@@ -8,3 +8,4 @@ scipy
 keras
 plotly
 pandas
+scikit-learn
