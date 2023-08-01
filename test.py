@@ -27,6 +27,7 @@ RTC_CONFIGURATION = RTCConfiguration({"iceServers": [{"urls": ["stun:stun.l.goog
 
 song = ""
 
+@st.cache(allow_output_mutation=True)
 class FaceEmotion(VideoTransformerBase):
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
