@@ -1,5 +1,6 @@
 streamlit
 opencv-python-headless
+tensorflow
 tensorflow==1.15
 streamlit_webrtc
 scipy
