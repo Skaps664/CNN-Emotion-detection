@@ -4,7 +4,7 @@ tensorflow
 tensorflow==1.15
 streamlit_webrtc
 scipy
-keras
+keras==2.13.1
 plotly
 pandas
 scikit-learn
