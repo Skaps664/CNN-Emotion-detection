@@ -1,9 +1,7 @@
 streamlit
 opencv-python-headless
-tensorflow-cpu
-tensorflow
+tensorflow==1.15
 streamlit_webrtc
-opencv-python
 scipy
 keras
 plotly
